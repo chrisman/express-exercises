@@ -2,6 +2,7 @@ var jade = require('jade')
 var express = require('express')
 
 var app = express()
+app.set('view engine', 'jade')
 var fromjade = jade.compileFile('views/index.jade')
 var myport = process.argv[2] || 3000
 
@@ -37,7 +38,7 @@ app.get('/meaning-of-life', function(req, res){
 
 app.get('/jade', function(req, res){
   var myname = (req.query.name) ? req.query.name : 'our guests!'
-  res.send(fromjade({name: myname}))
+  res.render('index', {name: myname})
 })
 
 app.listen(myport, function(){
