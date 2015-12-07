@@ -1,5 +1,9 @@
 extends ./layout.jade
 
+- var name = #{name}
 block content
     h1 Jade Yall
-    li with a fond hello to #{name}!
+    if name === undefined
+      li and a very nice day it is!
+    else
+      li with a fond hello to #{name}!

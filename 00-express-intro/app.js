@@ -37,8 +37,7 @@ app.get('/meaning-of-life', function(req, res){
 })
 
 app.get('/jade', function(req, res){
-  var myname = (req.query.name) ? req.query.name : 'our guests!'
-  res.render('index', {name: myname})
+  res.render('index', {name: req.query.name})
 })
 
 app.listen(myport, function(){
